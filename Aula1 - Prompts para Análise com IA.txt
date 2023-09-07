@@ -1,0 +1,77 @@
+Aula 1 - Prompts para Análise com IA
+
+Base de Dados Kaggle: https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset?resource=download
+Planilha no Google Sheets: https://docs.google.com/spreadsheets/d/1mKiPjSs8igwC77b58_OOu4xeOd9-7h5eOQ60jT3b9Ug/edit#gid=105405843
+
+PERGUNTA 1: Tenho uma base de dados com produtos da Amazon que contém 10 colunas, sendo elas:
+
+A. ID do produto
+B. Nome do produto
+C. Categoria
+D. Desconto do produto
+E. Valor do produto
+F. Porcentagem de desconto
+G. Avaliação
+H. Quantidade de pessoas que avaliaram
+I.Sobre o produto
+J. Link de cada produto
+Como posso fazer uma análise exploratória nessa base de dados pelo Google Sheets?
+
+RESPOSTA:
+Você pode realizar uma análise exploratória de sua base de dados da Amazon usando o Google Sheets seguindo os seguintes passos:
+
+1. Importação de Dados:
+- Abra o Google Sheets.
+- Vá para "Arquivo" > "Importar" > "Fazer upload de um arquivo".
+- Carregue o arquivo que contém sua base de dados.
+
+2. Verificação Inicial:
+- Dê uma olhada geral na planilha para ter uma ideia de como os dados estão organizados.
+- Certifique-se de que não há valores ausentes ou erros óbvios nos dados.
+
+3. Resumo Estatístico:
+- Crie uma nova planilha ou aba para sua análise exploratória.
+- Use as funções do Google Sheets para calcular estatísticas básicas, como média, mediana, desvio padrão, mínimo, máximo, etc., para colunas relevantes, como "Desconto do produto," "Valor do produto," "Avaliação," e "Quantidade de pessoas que avaliaram."
+
+4. Visualizações Gráficas:
+- Crie gráficos para ajudar a visualizar seus dados. Alguns tipos de gráficos úteis incluem:
+	> Histogramas para distribuições (por exemplo, para "Valor do produto" ou "Avaliação").
+	> Gráficos de barras para comparar categorias ou produtos com base em diferentes métricas.
+	> Gráficos de dispersão para explorar relações entre variáveis (por exemplo, "Valor do produto" vs. "Avaliação").
+	> Gráficos de pizza para mostrar a distribuição de categorias.
+
+5. Análise de Relações:
+- Explore relações entre variáveis. Por exemplo, você pode calcular a correlação entre "Valor do produto" e "Avaliação" para ver se existe alguma relação.
+- Use a função "CORREL" do Google Sheets para calcular a correlação entre duas colunas.
+
+6. Agrupamento e Segmentação:
+- Se a coluna "Categoria" tiver muitos valores únicos, considere agrupá-los em categorias mais amplas para facilitar a análise.
+- Você pode usar a função "FILTRAR" ou "TABELA DINÂMICA" para segmentar os dados com base em critérios específicos.
+
+7. Análise de Texto:
+- Se a coluna "Sobre o produto" contiver informações relevantes, você pode realizar análises de texto para extrair insights.
+- Use fórmulas do Google Sheets para contar palavras, identificar palavras-chave, ou realizar análise de sentimento.
+
+8. Links e Referências:
+- Você pode criar links clicáveis para os produtos usando a função "HIPERLINK" do Google Sheets, vinculando à coluna "Link de cada produto."
+
+9. Compartilhamento e Apresentação:
+- Depois de realizar sua análise, compartilhe os resultados com colegas ou equipe, ou crie um relatório ou apresentação com gráficos e insights.
+
+Lembre-se de que a análise exploratória de dados pode ser adaptada às suas necessidades específicas e aos objetivos da análise. É importante explorar os dados de maneira aprofundada para extrair informações valiosas que possam orientar decisões ou insights sobre seus produtos da Amazon.
+
+Pergunta 2: Tenho duas colunas de valores no Google Sheets e quero fazer a porcentagem de diferença dos valores. Como posso fazer? Use no exemplo as colunas D e E, sendo a coluna D o valor já com desconto e a coluna E o valor cheio.
+
+Fórmula para o Google Sheets, que atualiza em tempo real a cotação de Rúpia Indiana para Real Brasileiro: =GOOGLEFINANCE("CURRENCY:INRBRL")*D19
+
+Pergunta 3: Tenho uma coluna de preços de produtos na minha tabela do Google Sheets e quero fazer um Countif de valores abaixo de 50 reais, valorse entre 50 e 500 reais e valores maiores que 500 reais.
+
+- =COUNTIF(dados!G2:G1466; "<50")
+- =COUNTIF(dados!G:G; ">=50") - COUNTIF(dados!G:G; ">500")
+- =COUNTIF.SE(dados!G:G; ">=500")
+
+Exercício Prático:
+Kaggle: Top 1000 IMDb Movies Dataset - https://www.kaggle.com/datasets/inductiveanks/top-1000-imdb-movies-dataset
+Google Sheets: https://docs.google.com/spreadsheets/d/10Pex9ucyYSsofLsaCgUuvHEz7swmyVuk8pgqpkPdsb0/edit#gid=574201594
+https://docs.google.com/spreadsheets/d/15JmWj3KLib_-mtOuR3KyMJwaqUdHotxdRJ95M6CO8tM/edit#gid=1799034803
+
