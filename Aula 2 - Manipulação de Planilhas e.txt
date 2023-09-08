@@ -26,3 +26,37 @@ Calcular a média de à partir das notas da coluna I, onde o valor da coluna D s
 No Google Sheets, calcular a média de valores da coluna G baseado nas notas da coluna E que estejam estejam enter 8 e 9
 
 =(MÉDIASE(Top_1000_IMDb_movies_New_version!E2:E1001; ">=8"; Top_1000_IMDb_movies_New_version!G2:G1001) - MÉDIASE(Top_1000_IMDb_movies_New_version!E2:E1001; ">=9"; Top_1000_IMDb_movies_New_version!G2:G1001))*-1
+
+Tirar as Vírgulas:
+ =SUBSTITUIR(I2; ","; "")
+
+Substituir Ponto por Vírgula:
+ =SUBSTITUIR(I2; "."; ",")
+
+Conversão de Taxa (INDBRL):
+=GOOGLEFINANCE("CURRENCY:INRBRL")*J2
+
+Análise da tabela de Hotéis do Kaggle:
+
+Buscar a quantidade de hotéis por faixa de preço:
+=CONT.SE(Dados!O2:O75; "<50")
+=CONT.SE(Dados!O2:O75; ">=50") - CONT.SE(Dados!O2:O75; ">100")
+
+Buscar média de preços por faixa de preços
+=MÉDIASES(Dados!O2:O75; Dados!O2:O75; "<50")
+=MÉDIASES(Dados!O2:O75; Dados!O2:O75; ">=50"; Dados!O2:O75; "<100")
+
+Análise de notas por faixa de preço:
+=MÉDIASES(Dados!D2:D75; Dados!O2:O75; "<50")
+=MÉDIASES(Dados!D2:D75; Dados!O2:O75; ">=50"; Dados!O2:O75; "<100")
+
+Tenho uma tabela que contém a coluna F com as notas dos produtos e a coluna G com os preços dos produtos. Preciso extrair a média das notas dos produtos da coluna F, dependendo dos preços da coluna G, como abaixo:
+Nota média para preços de até R$50,00
+Nota média para preços de R$50,00 a R$100,00
+Nota média para preços de R$100,00  a R$300,00
+Nota média para preços de R$300,00 a R$600,00
+Nota média para preços de acima de R$600,00
+
+Qual a fórmula que eu devo usar no Google Sheets para fazer isso?
+=MÉDIASES(F1:F74; G1:G74; "<50")
+=MÉDIASES(F1:F74; G1:G74; ">=50"; G1:G74; "<100")
