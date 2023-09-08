@@ -4,7 +4,6 @@ Base de Dados Kaggle: https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales
 Planilha no Google Sheets: https://docs.google.com/spreadsheets/d/1mKiPjSs8igwC77b58_OOu4xeOd9-7h5eOQ60jT3b9Ug/edit#gid=105405843
 
 PERGUNTA 1: Tenho uma base de dados com produtos da Amazon que contém 10 colunas, sendo elas:
-
 A. ID do produto
 B. Nome do produto
 C. Categoria
@@ -64,11 +63,17 @@ Pergunta 2: Tenho duas colunas de valores no Google Sheets e quero fazer a porce
 
 Fórmula para o Google Sheets, que atualiza em tempo real a cotação de Rúpia Indiana para Real Brasileiro: =GOOGLEFINANCE("CURRENCY:INRBRL")*D19
 
-Pergunta 3: Tenho uma coluna de preços de produtos na minha tabela do Google Sheets e quero fazer um Countif de valores abaixo de 50 reais, valorse entre 50 e 500 reais e valores maiores que 500 reais.
 
 - =COUNTIF(dados!G2:G1466; "<50")
 - =COUNTIF(dados!G:G; ">=50") - COUNTIF(dados!G:G; ">500")
 - =COUNTIF.SE(dados!G:G; ">=500")
+
+=CONT.SE(Top_1000_IMDb_movies_New_version!E:E; ">=9")/1000
+=CONT.SE(Top_1000_IMDb_movies_New_version!E2:E1001; ">=8") - CONT.SE(Top_1000_IMDb_movies_New_version!E2:E1001; ">=9")
+=SOMA(B3:B6)
+=B3/B7
+=SOMA(B2:B5)
+=SOMA(C3:C6)
 
 Exercício Prático:
 Kaggle: Top 1000 IMDb Movies Dataset - https://www.kaggle.com/datasets/inductiveanks/top-1000-imdb-movies-dataset

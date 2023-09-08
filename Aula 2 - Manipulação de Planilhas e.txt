@@ -1,0 +1,28 @@
+Aula 2 - Manipulação de Planilhas e Gráficos com IA
+
+FAZER ANÁLISES POR CATEGORIA
+
+Magical: IA para textos
+Rows: IA para gráficos
+
+Pergunta 1: 
+Tenho uma cluna de valores de produtos e já classifiquei ela entre valores menores que 50 reais, entre 50 e 500 reais e maiores que 500 reais. Quero saber a média dos valores detro desses intervalos. Como posso fazer isso no Google Sheets?
+
+=MÉDIASES(Dados!G2:G1466; Dados!G2:G1466; "<50")
+=MÉDIASES(Dados!G2:G1466; Dados!G2:G1466; ">=50"; Dados!G2:G1466; "<=500")
+=MÉDIASES(Dados!G2:G1466; Dados!G2:G1466; ">=500")
+
+Exemplo de Prompt para análise de várias colunas ao mesmo tempo:
+
+Get the sum of B1 to B40 if the value in column C is "Salary" and column D is "2023".
+Resultado: =SUMIFS(B1:B40,C1:C40,"Salary",D1:D40,"2023")
+
+Outros:
+
+Calcular a média de à partir das notas da coluna I, onde o valor da coluna D seja igual a "Acessories"
+=MÉDIASE(Dados!D2:D1466; "Accessories"; Dados!I1:I1466)
+=UNIQUE(Dados!D:D)
+
+No Google Sheets, calcular a média de valores da coluna G baseado nas notas da coluna E que estejam estejam enter 8 e 9
+
+=(MÉDIASE(Top_1000_IMDb_movies_New_version!E2:E1001; ">=8"; Top_1000_IMDb_movies_New_version!G2:G1001) - MÉDIASE(Top_1000_IMDb_movies_New_version!E2:E1001; ">=9"; Top_1000_IMDb_movies_New_version!G2:G1001))*-1

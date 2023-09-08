@@ -1,9 +1,10 @@
-Notas,Quantidade de Notas,Porcentagem de Notas,,Votos,Quantidade de Votos,Porcentagem de Votos
-Entre 9 e 10,7,"0,70%",,Entre 0 e 999,3,"0,10%"
-"Entre 8 e 8,99",521,"52,10%",,Entre 1.000 e 99.999,608,"19,40%"
-"Entre 7 e 7,99",472,"47,20%",,Entre 100.000 e 499.999,110,"3,51%"
-Menos que 7,0,"0,00%",,Entre 500.000 e 999.999,574,"18,32%"
-Total,1000,"100,00%",,Entre 1.000.000 e 9.999.999,846,"26,99%"
-,,,,Entre 10.000.000 e 19.999.999,992,"31,65%"
-,,,,Mais de 20.000.000,1,"0,03%"
-,,,,Total,3134,"100,00%"
+,,,,,,,
+Notas,Quantidade,Porcentagem,Bilheteria Média (Em Milhôes USD),,Votos,Ocorrência de Votos,Porcentagem de Votos
+Entre 9 e 10,7,"0,70%","$176,37",,Entre 0 e 999,3,"0,30%"
+Entre 8 e 9,465,"46,50%","$94,50",,Entre 1.000 e 99.999,386,"38,60%"
+Entre 7 e 8,528,"52,80%","$8,86",,Entre 100.000 e 499.999,332,"33,20%"
+Menos que 7,0,"0,00%",#DIV/0!,,Entre 500.000 e 999.999,132,"13,20%"
+Total,1000,"100,00%",,,Entre 1.000.000 e 9.999.999,140,"14,00%"
+,,,,,Entre 10.000.000 e 19.999.999,6,"0,60%"
+,,,,,Mais de 20.000.000,1,"0,10%"
+,,,,,Total,1000,"100,00%"
