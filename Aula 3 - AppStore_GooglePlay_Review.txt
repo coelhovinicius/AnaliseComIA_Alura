@@ -1,6 +1,0 @@
-Aula 3 - Arquivos de Review App Store X Google Play
-
-Quero saber quantas notas 1 (coluna C Rating) cada loja teve (coluna A source).
-A2:A32911 C2:C32911 
-
-=MÉDIASE(Reviews!A2:A32911; "Google Play"; Reviews!C2:C32911)

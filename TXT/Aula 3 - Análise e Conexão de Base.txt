@@ -1,0 +1,41 @@
+Aula 3 - Análise e Conexão de Bases de Dados com IA
+
+Integrar IA dentro do Google Sheets
+
+Baixar tabela da Alura
+Copiar para a primeira tabela (Dados_imersao)
+Concatenar pela coluna de ID do produto
+
+Como consigo conectar duas tabelas diverentes (Dados e Avaliacoes) que têm uma coluna em comum (coluna A), no Google Sheets?
+
+=PROCV(A2; Avaliacoes!A:G; 5; FALSO) - Procura a célula A2 na tabela Avaliacoes, num range de colunas de A a G e busca os dados da posição 5 (no caso, a coluna E). O "FALSO" garante que a correspondência seja exata.
+-----------------------------------------------------------------------------------
+
+SheetGPT - Extensão para Google Sheets
+Comando: =GPT("Prompt desejado para o GPT"&M2) - A célula M2 é a que contém a informação a ser manipulada.
+Exemplo: =GPT("Traduza essa avaliação do inglês para o português"&M2)
+=GPT("Fazer um resumo da avaliação em até 25 palavras e traduzir para o português BR")&N2
+-----------------------------------------------------------------------------------
+
+Prompts da Aula:
+"Pergunta: Tenho uma lista de valores. O meu resultado final será 30% da soma de valores. Porém, nem todos os valores serão somados, apenas aqueles acima de R$40.000,00. Para a lista abaixo, conte quantos valores existem e me diga qual é o meu resultado final?
+
+R$10.000,00
+R$20.000,00
+R$50.000,00
+R$60.000,00
+Resposta: Nessa lista, existem 4 valores. Há 2 valores acima de R$40.000,00, que são R$50.000,00 e R$60.000,00. A soma desses valores é R$110.000,00. O resultado final é 30% da soma desses valores, portanto, 30% de R$110.000,00, que resulta em R$33.000,00.
+
+Pergunta: Tenho uma lista de valores. O meu resultado final será 30% da soma de valores. Porém, nem todos os valores serão somados, apenas aqueles acima de R$40.000,00. Para a lista abaixo, conte quantos valores existem e me diga qual é o meu resultado final?
+
+(COLAR AQUI OS 10 VALORES DA NOSSA LISTA REAL DO GOOGLE SHEETS)
+
+Resposta:"
+-----------------------------------------------------------------------------------
+
+Arquivos de Review App Store X Google Play
+
+Quero saber quantas notas 1 (coluna C Rating) cada loja teve (coluna A source).
+A2:A32911 C2:C32911 
+
+=MÉDIASE(Reviews!A2:A32911; "Google Play"; Reviews!C2:C32911)

@@ -1,0 +1,46 @@
+Aula 4 - Manipulação de Planilhas com Python/Pandas e ChatGPT
+
+Python - Linguagem de Programação
+
+Pandas - Biblioteca para Manipulações
+
+Google Colab - Framework de Integração
+
+Desafios do dia:
+Usando o Google Colab com Python e Pandas, criar uma nova coluna chamada “actual_price_real”, que será o valor da coluna “actual_price” convertido para reais (dica: você pode apenas multiplicar o valor em rúpias por 0.05, como fizemos na Aula 01, ou então buscar o valor de hoje da conversão entre rúpias indianas e reais brasileiros no Google).
+
+- Realizar as análises que foram executadas nas aulas anteriores usando o Google Sheets, mas agora utilizando Python e Pandas no Google Colab.
+
+- Conectar as duas planilhas usadas nas aulas anteriores, como fizemos com o VLOOKUP, mas usando Python e Pandas.
+
+- Colocar a base já corrigida na biblioteca Pandas Profiling citada no conteúdo extra.
+-----------------------------------------------------------------------------
+
+Google Colab - Site: colab.new
+
+- Roda Jupiter no backend;
+- Manipulação com Python no frontend;
+- Funciona manipulando célula por célula;
+- Execução de células separadamente, linha a linha;
+- Melhora a detecção de erros no código.
+
+1. Abra o Google Colab:
+Acesse o Google Colab em https://colab.research.google.com/ e crie um novo notebook.
+
+2. Importe as bibliotecas necessárias:
+- No início do seu notebook, importe as bibliotecas Pandas, Matplotlib e Seaborn;
+- Execute a célula de código:
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+- Rodar a célula.
+
+3. Carregue a planilha CSV:
+- Carregue sua planilha CSV no Colab usando o Pandas;
+- Certifique-se de que o arquivo CSV esteja na mesma pasta do seu notebook ou forneça o caminho completo para o arquivo CSV:
+# Substitua 'seuarquivo.csv' pelo nome do seu arquivo CSV
+*** df = pd.read_csv('seuarquivo.csv')
+dados = pd.read_csv('seuarquivo.csv')
+
+-----------------------------------------------------------------------------
