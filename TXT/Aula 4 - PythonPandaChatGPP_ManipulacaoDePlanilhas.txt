@@ -38,9 +38,167 @@ import seaborn as sns
 
 3. Carregue a planilha CSV:
 - Carregue sua planilha CSV no Colab usando o Pandas;
-- Certifique-se de que o arquivo CSV esteja na mesma pasta do seu notebook ou forneça o caminho completo para o arquivo CSV:
+- Para carregar, no Colab, ir em Arquivos - Fazer upload;
+- Certifique-se de que o arquivo CSV esteja na mesma pasta do seu notebook ou forneça o caminho completo para o arquivo CSV (botão direito e "Copiar caminho" em cima do arquivo no Colab):
 # Substitua 'seuarquivo.csv' pelo nome do seu arquivo CSV
-*** df = pd.read_csv('seuarquivo.csv')
-dados = pd.read_csv('seuarquivo.csv')
-
+*** df = pd.read_csv('seuarquivo.csv') - "df" é um alias para o acesso ao arquivo .csv
 -----------------------------------------------------------------------------
+
+Células de códigos:
+
+dados = pd.read_csv('/Dados_imersao - Dados.csv') - Armazena o caminho em "dados"
+avaliacoes = pd.read_csv('/Avaliacoes - Avaliacoes.csv') - Armazena o caminho em "avaliações"
+
+print(dados.head()) - Exibe as cinco primeiras linhas de informações de "dados"
+
+dados.head() - Exibe de forma diferente
+
+dados.head(2) - Exibe as duas primeiras linhas
+
+dados.info() - Exibe as informações de formatação dos dados das colunas do "dados"
+
+dados.describe() - Exibe a descrição
+
+Prompt ChatGPT:
+Tenho uma coluna de dados de valores em rupia indiana, porém, quero remover o sílbolo da moeda, como poss fazer isso no Python?
+
+# Supondo que o símbolo da rupia seja '₹'
+dados['actual_price'] = dados['actual_price'].str.replace('₹', '')
+
+# Convertendo a coluna para o tipo numérico (opcional)
+dados['actual_price'] = pd.to_numeric(dados['actual_price'])
+
+# Exibindo os primeiros registros após a remoção do símbolo da moeda
+print(dados.head())
+
+1. dados['actual_price'] = dados['actual_price'].str.replace('₹', ''):
+
+dados['actual_price']: Esta parte cria uma nova coluna chamada 'actual_price' no DataFrame 'dados' ou substitui a coluna existente 'actual_price' se ela já existir.
+.str.replace('₹', ''): Aqui, estamos usando o método str.replace() para manipular os valores na coluna 'actual_price'.
+'₹': O primeiro argumento do str.replace() é o padrão que queremos buscar na coluna. Neste caso, estamos procurando pelo símbolo da rupia, '₹'.
+'': O segundo argumento é o que queremos substituir pelo padrão encontrado. Neste caso, estamos substituindo o símbolo da rupia por uma string vazia, o que significa que estamos removendo o símbolo da moeda dos valores.
+
+2. dados['actual_price'] = pd.to_numeric(dados['actual_price']):
+
+dados['actual_price']: Mais uma vez, estamos acessando a coluna 'actual_price' no DataFrame 'dados'.
+pd.to_numeric(): Esta é uma função da biblioteca Pandas (pd) que converte os valores em um formato numérico.
+dados['actual_price']: Estamos aplicando a função pd.to_numeric() à coluna 'actual_price', o que converte os valores nessa coluna em números.
+
+3. print(dados.head()):
+
+print(): Esta função é usada para exibir os resultados no console.
+dados.head(): O método head() é usado para exibir as primeiras linhas do DataFrame 'dados'. Isso nos permite verificar como os dados foram alterados após a remoção do símbolo da moeda e a conversão para números.
+
+Portanto, o código completo faz o seguinte: ele remove o símbolo da moeda (₹) dos valores na coluna 'actual_price' do DataFrame 'dados' e, em seguida, converte esses valores em números. Por fim, ele exibe as primeiras linhas do DataFrame resultante para verificar as alterações.
+-----------------------------------------------------------------------------
+
+dados['actual_price'] = dados['actual_price'].str.replace('₹', '')
+
+dados['product_price'] = dados['product_price'].str.replace('₹','').str.replace('.', '').str.replace(',', '.')
+
+# Função para transformar os números em string
+dados['product_price'] = dados['product_price'].astype(str)
+
+# Função lambda para inserir um ponto antes dos dois últimos dígitos do número
+dados['product_price'] = dados['product_price'].apply(lambda x: x[:-2] + '.' + x[-2:])
+
+# Converte coluna para tipo numérico
+dados['product_price'] = pd.to_numeric(dados['product_price'])
+
+dados['rating'] = dados['rating'].str.replace(',', '.')
+-----------------------------------------------------------------------------
+
+No Colab, podemos inserir Texto e usar "##" para criar um subcapítulo das linhas de programação 
+## Graficos
+
+Prompt: Tenho uma coluna de avaliações de produtos que se chama "rating", e quero fazer um fráfico de barras fazendo a contagem de todos os valores acima de 4,5 pontos. Como posso fazer no Python? Sendo que meu Dataframe se chama "dados".
+
+import matplotlib.pyplot as plt
+
+# Filtra os valores acima de 4.5
+avaliacoes_acima_4_5 = dados[dados['rating'] > 4.5]
+
+# Conta a frequência de cada valor
+contagem_avaliacoes = avaliacoes_acima_4_5['rating'].value_counts().sort_index()
+
+# Cria o gráfico de barras
+plt.figure(figsize=(10, 6))
+plt.bar(contagem_avaliacoes.index, contagem_avaliacoes.values, color='skyblue')
+plt.xlabel('Avaliação')
+plt.ylabel('Contagem')
+plt.title('Contagem de Avaliações Acima de 4.5')
+plt.show()
+
+Explicação do código:
+
+1. import matplotlib.pyplot as plt: Importa a biblioteca Matplotlib para criar visualizações gráficas.
+
+2. avaliacoes_acima_4_5 = dados[dados['rating'] > 4.5]: Filtra as linhas onde a coluna 'rating' é maior que 4.5 e armazena esse DataFrame filtrado em "avaliacoes_acima_4_5".
+
+3. contagem_avaliacoes = avaliacoes_acima_4_5['rating'].value_counts().sort_index(): Calcula a contagem de cada valor único na coluna 'rating' e ordena os valores.
+
+4. plt.figure(figsize=(10, 6)): Define o tamanho da figura do gráfico.
+
+5. plt.bar(contagem_avaliacoes.index, contagem_avaliacoes.values, color='skyblue'): Cria o gráfico de barras usando os valores e índices da contagem. A cor 'skyblue' é apenas uma opção para a cor das barras, você pode alterá-la conforme desejado.
+
+6. plt.xlabel('Avaliação') e plt.ylabel('Contagem'): Adiciona rótulos aos eixos x e y.
+
+7. plt.title('Contagem de Avaliações Acima de 4.5'): Adiciona um título ao gráfico.
+
+8. plt.show(): Exibe o gráfico.
+
+Este código irá criar um gráfico de barras mostrando a contagem de avaliações acima de 4,5 pontos. Lembre-se de substituir 'rating' pelo nome da sua coluna de avaliações, se for diferente.
+-----------------------------------------------------------------------------
+
+# Filtra os valores acima de 4.5
+ratings_above_4_5 = dados[dados['rating'] >= 4.5]
+
+# Conta a frequência de cada valor
+rating_counts = ratings_above_4_5['rating'].value_counts().sort_index()
+
+# Cria o gráfico de barras
+plt.figure(figsize=(10, 6))
+sns.barplot(x=rating_counts.index, y=rating_counts.values, color='skyblue')
+# plt.bar(rating_counts.index, rating_counts.values, color='skyblue')
+plt.xlabel('Avaliação')
+plt.ylabel('Contagem')
+plt.title('Contagem de Avaliações Acima de 4.5')
+plt.show()
+-----------------------------------------------------------------------------
+
+# Filtre os valores até 50 reais
+ate_50 = dados[dados['actual_price_real'] <= 50]
+
+# Filtre os valores entre 50 reais e 500 reais
+entre_50_500 = dados[(dados['actual_price_real'] > 50) & (dados['actual_price_real'] <= 500)]
+
+# Filtre os valores acima de 500 reais
+acima_de_500 = dados[dados['actual_price_real'] > 500]
+
+# Contagem de produtos em cada faixa de valor
+contagem = [len(ate_50), len(entre_50_500), len(acima_de_500)]
+categorias = ['Até 50 Reais', 'Entre 50 e 500 Reais', 'Acima de 500 Reais']
+
+# Destacar a fatia com o maior valor
+explode = (0.1, 0, 0)
+
+# Crie um gráfico de pizza
+plt.figure(figsize=(8, 8))
+plt.pie(contagem, labels=categorias, autopct='%1.1f%%', startangle=140, explode=explode)
+plt.title('Distribuição de Produtos por Faixa de Valor')
+plt.show()
+-----------------------------------------------------------------------------
+
+Pandas - Biblioteca Profiling
+
+import pandas as pd
+
+dados = pd.read_csv('caminho_do_arquivo_csv_uploadado_no_colab')
+dados.head()
+
+
+!pip install pandas-profiling - pip é um como se estivéssemos usando o terminal
+
+import pandas_profiling
+
+dados.profile_report() - faz um overview do que tem no arquivo .csv
